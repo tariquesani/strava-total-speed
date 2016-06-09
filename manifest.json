@@ -10,10 +10,12 @@
       "js": ["jquery-2.2.4.min.js", "content.js"]
     }
   ],
+  "options_page": "options.html",
   "background": {
     "scripts": ["background.js"]
   },
   "permissions": [
-   "tabs"
+    "tabs",
+    "storage"
   ]
 }
