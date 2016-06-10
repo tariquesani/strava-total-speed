@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head><title>Strava Total Speed Options</title></head>
+<head>
+	<title>Strava Total Speed Options</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
 <body>
-
-Auth Key:
-<input type="test" id="authKey">
-
-<div id="status"></div>
-<button id="save">Save</button>
-
+<div class="container">
+	<h1>Strava Total Speed Options</h1>
+	<div id="status"></div>
+	<p>Obtain access token from <a href="https://www.strava.com/settings/api" target="_blank">https://www.strava.com/settings/api</a></p>
+	<div class="form-group">
+		<label for="authKey">Strava API Access Token</label>
+		<input type="test" class="form-control" id="authKey">
+	</div>
+	<button class="btn btn-default" id="save" >Save</button>
+</div>
 <script src="options.js"></script>
 </body>
 </html>
