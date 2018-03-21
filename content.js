@@ -18,16 +18,21 @@ function main(userPrefs){
     }
 
     $.ajax(settings).done(function (response) {
-      
-    	totalSpeed = ((response.distance/response.elapsed_time)/1000)*3600;
-    	totalSpeed = totalSpeed.toFixed(2);
-    	var timeElapsed = $( "[data-glossary-term='definition-elapsed-time']" ).parent().next().text();
+      timeElapsed = $( "[data-glossary-term='definition-elapsed-time']" ).parent().next().html();
+      //console.log($( "[data-glossary-term='definition-elapsed-time']" ).parent().next().html());
 
-    	timeElapsed += " ("+totalSpeed+" km/h)";
+      if (response.type == "Run") {
+        totalPace = ((response.elapsed_time/60)/(response.distance/1000));
+        totalPace = totalPace.toFixed(2);
+        timeElapsed += " ("+totalPace+"/km)";        
+      } else {
+        totalSpeed = ((response.distance/response.elapsed_time)/1000)*3600;
+        totalSpeed = totalSpeed.toFixed(2);
+        timeElapsed += " ("+totalSpeed+" km/h)";
+      }
 
-    	$("[data-glossary-term='definition-elapsed-time']").parent().next().text(timeElapsed);
+    	$("[data-glossary-term='definition-elapsed-time']").parent().next().html(timeElapsed);
     });
 }
 
 chrome.storage.sync.get('authKey', main);
-
